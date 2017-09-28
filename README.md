@@ -11,5 +11,10 @@ rake db:create
 rake db:migrate
 heroku pg:backups capture --app enzomanager
 curl -o latest.dump `heroku pg:backups public-url --app enzomanager`
-pg_restore --verbose --clean --no-acl --no-owner -h localhost -U igorgaelzer -d enzo_development latest.dump
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -U lucaskuhn -d enzo_development latest.dump
+```
+### HEROKU
+Check Remotes
+```
+git remote -v
 ```
