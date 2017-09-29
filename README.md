@@ -1,4 +1,10 @@
 # Workflow and Tricks
+GITHUB
+```
+# Push local master to github staging branch
+git push origin master:staging
+```
+
 Fix UNIX Socket
 ```
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
