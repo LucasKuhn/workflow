@@ -20,6 +20,10 @@ heroku pg:backups capture --app enzomanager
 curl -o latest.dump `heroku pg:backups public-url --app enzomanager`
 pg_restore --verbose --clean --no-acl --no-owner -h localhost -U lucaskuhn -d enzo_development latest.dump
 ```
+```
+# Push local master to heroku staging
+git push staging master
+```
 
 Check Remotes
 ```
