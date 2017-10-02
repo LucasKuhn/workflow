@@ -3,7 +3,7 @@ GENERATE HELPERS
 ```
 rails generate controller ModelsController index  --no-helper --no-assets --no-controller-specs --no-view-specs
 rails generate migration CreateProducts name:string part_number:string
-
+[has many has many](https://stackoverflow.com/questions/4381154/rails-migration-for-has-and-belongs-to-many-join-table)
 ```
 
 GITHUB
