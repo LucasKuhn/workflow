@@ -1,4 +1,11 @@
 # Workflow and Tricks
+GENERATE HELPERS
+```
+rails generate controller ModelsController index  --no-helper --no-assets --no-controller-specs --no-view-specs
+rails generate migration CreateProducts name:string part_number:string
+
+```
+
 GITHUB
 ```
 # Push local master to github staging branch
