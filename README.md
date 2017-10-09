@@ -41,6 +41,10 @@ Check Remotes
 ```
 git remote -v
 ```
+Precompile Assets
+```
+c refspec stagin
+```
 
 ### RSPEC
 Get Detailed Results
