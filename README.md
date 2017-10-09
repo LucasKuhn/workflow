@@ -31,6 +31,11 @@ pg_restore --verbose --clean --no-acl --no-owner -h localhost -U lucaskuhn -d en
 # Push local master to heroku staging
 git push staging master
 ```
+Server Things
+```
+heroku run rake db:version --app enzo-staging
+heroku restart --app enzo-staging
+```
 
 Check Remotes
 ```
