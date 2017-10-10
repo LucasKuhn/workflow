@@ -17,7 +17,7 @@ Fix UNIX Socket
 pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 ```
 
-### HEROKU
+## HEROKU
 Get DB from Heroku Server
 ```
 rake db:drop
@@ -46,16 +46,31 @@ Precompile Assets
 c refspec stagin
 ```
 
-### RSPEC
+## RSPEC
 Get Detailed Results
 ```
 rspec -fd
 ```
 
-### EMAIL
-**As ações** ficam em uma classe EnzoMailer em `app/mailers/enzo_mailer.rb`  
-**Para ativar a ação** precisa chamar o método da classe + deliver, ex: `EnzoMailer.sample_email(@user).deliver`  
-**Texto do email** fica em um arquivo .html.erb em `app/views/enzo_mailer/sample_email.html.erb`  
-**Email e senha** ficam em uma Enviroment Variable que é ignorada pelo .gitignore em `config/environments/production.rb`  
+## EMAIL
+#### Ações
+ficam em uma classe EnzoMailer em `app/mailers/enzo_mailer.rb`  
+#### Para ativar a ação
+precisa chamar o método da classe + deliver, ex: `EnzoMailer.sample_email(@user).deliver`  
+#### Texto do email
+fica em um arquivo .html.erb em `app/views/enzo_mailer/sample_email.html.erb`  
+#### Email e senha
+ficam em uma Enviroment Variable que é ignorada pelo .gitignore em `config/environments/production.rb`  
+### Preview
+```
+# Criar o preview method que pega uma variavel
+# /spec/mailers/previews/enzo_mailer_preview.rb
+  def retailer_order_mail_preview
+    EnzoMailer.retailer_order_email(User.find(343),Order.last)
+  end
+  
+# Para acessar
+http://localhost:3000/rails/mailers/enzo_mailer/retailer_order_mail_preview
+```
 
 Mais info: https://launchschool.com/blog/handling-emails-in-rails
