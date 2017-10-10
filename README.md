@@ -51,3 +51,9 @@ Get Detailed Results
 ```
 rspec -fd
 ```
+
+### EMAIL
+**As ações** ficam em uma classe EnzoMailer em `app/mailers/enzo_mailer.rb`
+**Para ativar a ação** precisa chamar o método da classe + deliver, ex: `EnzoMailer.sample_email(@user).deliver`
+**Texto do email** fica em um arquivo .html.erb em `app/views/enzo_mailer/sample_email.html.erb`
+**Email e senha** ficam em uma Enviroment Variable que é ignorada pelo .gitignore em `config/environments/production.rb`
