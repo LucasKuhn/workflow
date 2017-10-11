@@ -53,24 +53,63 @@ rspec -fd
 ```
 
 ## EMAIL
-### Ações
-Quem envia os emails é um mailer chamado Enzo Mailer, que ficam em `app/mailers/enzo_mailer.rb`  
-#### Para ativar a ação
-precisa chamar o método da classe + deliver, ex: `EnzoMailer.sample_email(@user).deliver`  
-#### Texto do email
-fica em um arquivo .html.erb em `app/views/enzo_mailer/sample_email.html.erb`  
-#### Email e senha
-ficam em uma Enviroment Variable que é ignorada pelo .gitignore em `config/environments/production.rb`  
-### Preview
-```
-# Criar o preview method que pega uma variavel
-# /spec/mailers/previews/enzo_mailer_preview.rb
-  def retailer_order_mail_preview
-    EnzoMailer.retailer_order_email(User.find(343),Order.last)
+### Action Mailer
+Quem envia os emails é um mailer chamado Enzo Mailer
+```ruby 
+# app/mailers/enzo_mailer.rb
+
+class EnzoMailer < ActionMailer::Base
+  default from: "atendimento@nordweg.com"
+
+  def order_confirmation_to_retailer(user, order)
+    @user = user
+    @order = order
+    mail(to: @user.email, subject: 'Seu pedido foi realizado com sucesso!')
   end
-  
-# Para acessar
-http://localhost:3000/rails/mailers/enzo_mailer/retailer_order_mail_preview
+end
+```
+Como o envio é feito através do MailChip e ele tem acesso ao domínio @nordweg.com, basta mudar aqui a parte `default from`para alterar quem envia o email
+
+#### Texto do email
+Está em formato HTML, e se encontra em:
+```
+app/views/enzo_mailer/order_confirmation_to_retailer.html.erb
+```  
+
+### Para enviar um email
+Basta chamar o método do mailer e adicionar .deliver 
+```ruby 
+EnzoMailer.order_confirmation_to_retailer(@user).deliver
 ```
 
-Mais info: https://launchschool.com/blog/handling-emails-in-rails
+### Configurações de STMP
+```ruby 
+# enzo/config/environments/production.rb
+
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.mandrillapp.com",
+    :port                 => 587,
+    :user_name            => Rails.application.secrets.mandrill_user_name,
+    :password             => Rails.application.secrets.mandrill_api_key,
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+```
+
+### Email e senha
+Ficam em uma Enviroment Variable que é ignorada pelo .gitignore em `config/secrets.yml`  
+
+### Preview
+Primeiro é preciso criar um método que faça o preview com um valor existente (ex: User.last)
+```
+# /spec/mailers/previews/enzo_mailer_preview.rb
+  def retailer_order_mail_preview
+    EnzoMailer.order_confirmation_to_retailer_preview(User.last,Order.last)
+  end
+  
+```
+Para ver o preview basta acessar pelo browser:
+```
+http://localhost:3000/rails/mailers/enzo_mailer/order_confirmation_to_retailer_preview
+```
+[Setup Guide!](https://launchschool.com/blog/handling-emails-in-rails)
