@@ -53,8 +53,8 @@ rspec -fd
 ```
 
 ## EMAIL
-#### Ações
-ficam em uma classe EnzoMailer em `app/mailers/enzo_mailer.rb`  
+### Ações
+Quem envia os emails é um mailer chamado Enzo Mailer, que ficam em `app/mailers/enzo_mailer.rb`  
 #### Para ativar a ação
 precisa chamar o método da classe + deliver, ex: `EnzoMailer.sample_email(@user).deliver`  
 #### Texto do email
