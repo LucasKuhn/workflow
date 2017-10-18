@@ -43,7 +43,10 @@ git remote -v
 ```
 Precompile Assets
 ```
-c refspec stagin
+RAILS_ENV=production bundle exec rake assets:precompile
+git add public/assets (OR .)
+git commit -m "compiled assets"
+git push staging master
 ```
 
 ## RSPEC
