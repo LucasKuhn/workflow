@@ -8,8 +8,8 @@ rails generate migration CreateProducts name:string part_number:string
 
 GITHUB
 ```
-# Push local master to github staging branch
-git push origin master:staging
+# Push local master to github lucas-staging branch
+git push origin master:lucas-staging
 ```
 
 Fix UNIX Socket
