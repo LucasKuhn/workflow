@@ -36,6 +36,11 @@ Server Things
 heroku run rake db:version --app enzo-staging
 heroku restart --app enzo-staging
 ```
+Check And Update Migrations
+```
+heroku run rake db:version --app enzo-staging
+heroku run rake db:migrate --app enzo-staging
+```
 
 Check Remotes
 ```
