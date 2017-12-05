@@ -121,3 +121,22 @@ Para ver o preview basta acessar pelo browser:
 http://localhost:3000/rails/mailers/enzo_mailer/order_confirmation_to_retailer_preview
 ```
 [Setup Guide!](https://launchschool.com/blog/handling-emails-in-rails)
+
+
+### POSTGRES - DOWNGRADE
+```
+brew uninstall postgres
+brew uninstall --force postgres
+brew search postgresql
+brew install postgresql@9.6
+brew link postgres
+# open result of error from above
+# rename folder postgres@9.6 to postgres
+brew link postgres
+brew services start postgres
+brew services list 
+# Check that only postgres is running
+# ---- 
+# for enzo: 'gem uninstall pg' then 'bundle' (same as 'gem pristine pg')?
+```
+
