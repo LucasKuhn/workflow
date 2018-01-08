@@ -140,3 +140,16 @@ brew services list
 # for enzo: 'gem uninstall pg' then 'bundle' (same as 'gem pristine pg')?
 ```
 
+### Nordweg Website
+Besides installing AWS and such, make sure you have the heroku toolbelt and the app set-up `heroku git:remote -a nordweg-site-production`
+If you get an error where you can't create the dumpfile, create first the temp directory `$ mkdir tmp` and try to run `$ bin/setup` again
+
+To set-up AWS CLI - `aws configure`
+
+To run the setup a second time:
+1. Drop the current database:  
+`$ bundle exec rake db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1`  
+2. Run the setup again:  
+`$ bin/setup`
+
+
