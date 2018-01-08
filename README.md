@@ -142,7 +142,7 @@ brew services list
 
 ### Nordweg Website
 Besides installing AWS and such, make sure you have the heroku toolbelt and the app set-up:  
-`heroku git:remote -a nordweg-site-production`
+`heroku git:remote -a nordweg-site-production`  
 If you get an error where you can't create the dumpfile, create first the temp directory:  
 `$ mkdir tmp`  
 and try to run the setup again:  
