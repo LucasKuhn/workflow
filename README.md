@@ -148,8 +148,11 @@ If you get an error where you can't create the dumpfile, create first the temp d
 and try to run the setup again:  
 `$ bin/setup`  
 
-To set-up AWS CLI:  
-`$ aws configure`
+Check S3 bucket access:  
+`aws s3 ls s3://nordweg-staging`  
+To set-up AWS CLI:    
+`$ aws configure`  
+(Region: us-east-2)  
 
 To run the setup a second time:
 1. Drop the current database:  
