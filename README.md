@@ -163,4 +163,6 @@ To run the setup a second time:
 2. Run the setup again:  
 `$ bin/setup`
 
+*Check Database:* . 
+```heroku pg:info --app nordweg-site-production```
 
